@@ -1,1 +1,30 @@
-<?php 
+<?php
+
+/**
+ * @file
+ * Collect the titles from a Feed Item nod via URL link XML/RSS feed import and display those in a block.
+*/
+
+
+/**
+ *Implements hook_menu().
+ */
+
+function f1_feed_block_menu(){
+  $items['admin/config//f1_feed_block'] = array(
+    'title' => 'F1 Feed Block Settings',
+    'description' => 'Administer the F1 Feed Block settings',
+    'page callback' => 'drupal_get_form',
+    'page arguements' => array('f1_feed_block_menu_settings_form'),
+    'access arguements' => array('manage F1 feed block settings'),
+    'file' => 'f1_feed_block.admin.inc',
+  );
+  $items['admin/reports/f1_feed_block'] = array(
+    'title' => "Facebook Feed Block Posts",
+    'description' => 'View all the F1 Feed imported posts.',
+    'page callback' => 'f1_feed_block_posts',
+    'access arguments' => array('view F1 feed block posts'),
+    'file' => 'f1_feed_block.admin.inc',
+  );
+  return $items;
+}
