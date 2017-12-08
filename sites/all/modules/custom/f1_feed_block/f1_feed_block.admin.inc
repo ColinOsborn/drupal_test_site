@@ -24,4 +24,6 @@ function f1_feed_block_settings_form() {
     '#default_value' => variable_get('f1_feed_block_types', array()),
     '#required' => TRUE,
   );
+
+  return system_settings_form($form);
 }
