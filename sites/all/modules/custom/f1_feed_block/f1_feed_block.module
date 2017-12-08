@@ -11,7 +11,7 @@
  */
 
 function f1_feed_block_menu(){
-  $items['admin/config//f1_feed_block'] = array(
+  $items['admin/config/f1_feed_block'] = array(
     'title' => 'F1 Feed Block Settings',
     'description' => 'Administer the F1 Feed Block settings',
     'page callback' => 'drupal_get_form',
