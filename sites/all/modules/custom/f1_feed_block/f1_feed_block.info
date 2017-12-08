@@ -1,0 +1,9 @@
+name = F1 Feed Block
+description = Provides a block that shows imported posts from a F1 Feed onto Content
+core = 7.x
+package = Other
+version = 1.x-dev
+configure = admin/config/content/f1_feed_block
+dependencies[] = block
+dependencies[] = feeds
+files[] = f1_feeds_block.module
