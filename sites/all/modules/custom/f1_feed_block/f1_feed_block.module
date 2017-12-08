@@ -20,7 +20,7 @@ function f1_feed_block_menu(){
     'file' => 'f1_feed_block.admin.inc',
   );
   $items['admin/reports/f1_feed_block'] = array(
-    'title' => "Facebook Feed Block Posts",
+    'title' => "F1 Feed Block Posts",
     'description' => 'View all the F1 Feed imported posts.',
     'page callback' => 'f1_feed_block_posts',
     'access arguments' => array('view F1 feed block posts'),
