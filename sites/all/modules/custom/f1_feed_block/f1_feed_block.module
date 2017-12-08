@@ -28,3 +28,24 @@ function f1_feed_block_menu(){
   );
   return $items;
 }
+
+/**
+ * Implements hook_permission().
+ */
+
+ function f1_feed_block_permission(){
+   return array(
+     'view f1 feed block posts' => array(
+       'title' => t('View all the F1 Feed imported posts on the main F1 posts page'),
+       'description' => t('View all the Formula 1 imported posts on the main posts page'),
+     ),
+     'change RSS feed used in f1 feed' => array(
+       'title' => t('Change the RSS feed used in the Formula 1 feed'),
+       'description' => t('Add new RSS feed to be imported'),
+     ),
+     'manage f1 feed block settings' => array(
+       'title' => t('Manage Formula 1 Feed settings'),
+       'description' => t('Allow user to manage the Formula 1 feed block settings'),
+     ),
+   );
+ }
