@@ -15,7 +15,7 @@ function f1_feed_block_menu(){
     'title' => 'F1 Feed Block Settings',
     'description' => 'Administer the F1 Feed Block settings',
     'page callback' => 'drupal_get_form',
-    'page arguements' => array('f1_feed_block_menu_settings_form'),
+    'page arguements' => array('f1_feed_block_settings_form'),
     'access arguements' => array('manage F1 feed block settings'),
     'file' => 'f1_feed_block.admin.inc',
   );
