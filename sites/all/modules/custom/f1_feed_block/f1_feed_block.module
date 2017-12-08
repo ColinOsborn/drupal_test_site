@@ -30,6 +30,12 @@ function f1_feed_block_menu(){
 }
 
 /**
+ * Any time you wna to have a callback to an admin file or source, you will have it be
+ * an admin.inc file, otherwise you'll have it go towards a pages.inc file.
+ */
+
+
+/**
  * Implements hook_permission().
  */
 
