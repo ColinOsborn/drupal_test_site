@@ -55,3 +55,22 @@ function f1_feed_block_menu(){
      ),
    );
  }
+
+ function f1_feed_block_form_node_form_alter(&$form, $form_state, $form_id) {
+    $node = $form['#node'];
+    $types = variable_get('f1_feed_block_types', array());
+    if ($types[$node->type]) && user_access('manage F1 feed settings')) {
+      $form['f1_feed_block'] = array(
+        '#title' => t("F1 Feed Block"),
+        '#type' => 'fieldset',
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,
+        '#group' => 'additional_settings',
+      );
+      $form['f1_feed_block']['f1_feed_block_enabled'] = array(
+        '#title' => t("Allow this node to be posted to the F1 Block"),
+        '#type' => 'checkbox',
+        '#default_value' => isset($node->f1_feed_block_enabled) ? $node->f1_feed_block_enabled : FALSE,
+      );
+    }
+ }
