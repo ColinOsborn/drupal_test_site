@@ -83,3 +83,29 @@ function f1_feed_block_menu(){
 		);
 	}
 }
+
+// Implements hook_node_load().
+
+function f1_feed_block_node_load($nodes, $types) {
+  foreach ($nodes as $nid => $node) {
+    // Add f1_feed_block data to the node oject when it is loaded.
+    $node->f1_feed_block_enabled = f1_feed_block_get_node_enabled($node->nid);
+  }
+}
+
+function f1_feed_block_node_insert($node) {
+  if($node->f1_feed_block_enabled) {
+    // If f1 Feed Block is enabled, store that and record it to DB
+    f1_feed_block_set_node_enabled($node->nid);
+  }
+}
+// Implements hook node update
+
+function f1_feed_block_node_update($node) {
+  f1_feed_block_delete_node_enabled($node->nid);
+}
+
+// Implements hook node delete
+function f1_feed_block_node_delete($node) {
+  f1_feed_block_delete_node_enabled($node->nid);
+}

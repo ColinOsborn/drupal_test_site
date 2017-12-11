@@ -50,3 +50,14 @@ function f1_feed_block_schema() {
   );
   return $schema;
 }
+
+
+/**
+  * Implements the hook_uninstall().
+  */
+
+function f1_feed_block_uninstall() {
+  	drupal_uninstall_schema('f1_feed_block');
+    variable_del('f1_feed_block_types');
+    variable_del('f1_feed_block_maxposts');
+ }
