@@ -67,7 +67,7 @@ function f1_feed_block_menu(){
 	$types = variable_get('f1_feed_block_types', array());
 	//Check if this node type is enabled for the FB Feeds Block
 	//and that the user has access to the per-node settings
-	if ($types[$node->type] && user_access('manage facebook feed block settings')) {
+	if ($types[$node->type] && user_access('manage f1 feed block settings')) {
 		//Add a new fieldset with a checkbox for per-node setting.
 		$form['f1_feed_block'] = array(
 		'#title'=> t('F1 Feed Block'),
