@@ -55,3 +55,31 @@ function f1_feed_block_menu(){
      ),
    );
  }
+
+
+ /**
+ *code from tutorial
+ */
+ function f1_feed_block_form_node_form_alter(&$form, $form_state, $form_id) {
+	//dsm($form_id);  // print form ID to messages
+	$node = $form['#node'];
+	//Perform our check to see if we should be performing an action
+	$types = variable_get('f1_feed_block_types', array());
+	//Check if this node type is enabled for the FB Feeds Block
+	//and that the user has access to the per-node settings
+	if ($types[$node->type] && user_access('manage facebook feed block settings')) {
+		//Add a new fieldset with a checkbox for per-node setting.
+		$form['f1_feed_block'] = array(
+		'#title'=> t('F1 Feed Block'),
+		'#type' => 'fieldset',
+		'#collapsible' => TRUE,
+		'#collapsed' => FALSE,
+		'#group' => 'additional_settings',
+		);
+		$form['f1_feed_block']['f1_feed_block_enabled'] = array(
+		'#title' => t('Allow this node to be posted to the F1 Block'),
+		'#type' => 'checkbox',
+		'#default_value' => isset($node->f1_feed_block_enabled) ? $node->f1_feed_block_enabled : FALSE,
+		);
+	}
+}
