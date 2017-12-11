@@ -27,7 +27,7 @@ function f1_feed_block_settings_form() {
   return system_settings_form($form);
 }
 
-function f1_feed_block_settings_form_validate($form, &$form_state){
+function f1_feed_block_settings_form_validate($form, &$form_state) {
   $maxposts = $form_state['values']['f1_feed_block_maxposts'];
   if(!is_numeric($maxposts)) {
     form_set_error('f1_feed_block_maxposts', t('You must enter an integer for the maximum number of links.'));
