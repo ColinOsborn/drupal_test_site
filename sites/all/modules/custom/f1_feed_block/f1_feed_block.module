@@ -93,6 +93,8 @@ function f1_feed_block_node_load($nodes, $types) {
   }
 }
 
+// Implements hook node insert
+
 function f1_feed_block_node_insert($node) {
   if($node->f1_feed_block_enabled) {
     // If f1 Feed Block is enabled, store that and record it to DB
@@ -108,4 +110,41 @@ function f1_feed_block_node_update($node) {
 // Implements hook node delete
 function f1_feed_block_node_delete($node) {
   f1_feed_block_delete_node_enabled($node->nid);
+}
+
+
+// Determine if a node is set
+// @param is $nid
+// the node id of the node in question
+// @return boolean
+
+function f1_feed_block_get_node_enabled($nid) {
+  if(is_numeric($nid)) {
+    $result = db_query("SELECT nid from {f1_feed_block_enabled} WHERE nid = :nid", array('nid' => $nid))->fetchField();
+    if($result) {
+      return TRUE;
+    }
+    }
+    return FALSE;
+}
+
+// Add an entry for a node's F1 Feed Block setting
+
+function f1_feed_block_set_node_enabled($nid) {
+	if (is_numeric($nid)) {
+		if (!f1_feed_block_get_node_enabled($nid)) {
+			$jump = db_insert('f1_feed_block_enabled')
+			 ->fields(array('nid' => $nid))
+			 ->execute();
+		}
+	}
+}
+
+// Remove an entry for a node F1 feed block setting - execute a delete
+function f1_feed_block_delete_node_enabled($nid) {
+  if(is_numeric($nid)) {
+    $vump = db_delete('f1_feed_block_get_node_enabled')
+    ->condition('nid', $nid)
+    ->execute();
+  }
 }
