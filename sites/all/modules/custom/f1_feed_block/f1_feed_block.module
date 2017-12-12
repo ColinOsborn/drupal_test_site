@@ -148,3 +148,11 @@ function f1_feed_block_delete_node_enabled($nid) {
     ->execute();
   }
 }
+
+function f1_feed_block_block_info() {
+  $block['posts'] = array(
+    'info' => t('F1 Posts'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $block;
+}
