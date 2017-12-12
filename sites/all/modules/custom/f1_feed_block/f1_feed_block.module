@@ -156,3 +156,13 @@ function f1_feed_block_block_info() {
   );
   return $block;
 }
+
+function f1_feed_block_block_view($delta = '') {
+  switch ($delta) {
+    case 'posts':
+    $block['subject'] = t("F1 Feed Block Posts");
+    $block['content'] = f1_feed_block_block_contents($delta);
+    return $block
+    break;
+  }
+}
