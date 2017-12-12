@@ -162,7 +162,42 @@ function f1_feed_block_block_view($delta = '') {
     case 'posts':
     $block['subject'] = t("F1 Feed Block Posts");
     $block['content'] = f1_feed_block_block_contents($delta);
-    return $block
+    return $block;
     break;
   }
+}
+
+
+// function fb_feed_block_block_view($delta = '') {
+// 	switch ($delta) {
+// 		case 'posts':
+// 			$block['subject'] = t('Facebook Feed Block Posts');
+// 			$block['content'] = fb_feed_block_block_contents($delta);
+// 			return $block;
+// 			break;
+// 	}
+// }
+
+
+
+
+/**
+ * Custom function called by hook_block_view to display our block content
+ *
+ */
+
+function f1_feed_block_block_contents($delta = '') {
+  switch ($delta) {
+    case 'posts':
+      if (user_access('access content')) {
+      	//if($node->f1_feed_block_enabled) {
+        $result = db_query("SELECT nid, title, type FROM {node} WHERE type = 'feed_item'");
+				$items = array();
+				foreach ($result as $row) {
+					$items[] = l($row->title, 'node/' .$row->nid. '/');
+				}
+          return array('#markup' => theme('item_list', array('items' => $items)));
+        }
+			break;
+    }
 }
