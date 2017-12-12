@@ -1,0 +1,30 @@
+body.node-type-recipe div.field-name-field-image {
+  float:left;
+}
+body.node-type-recipe div.time-yield-wrapper {
+  float:left;
+  margin-left: 20px;
+  border:1px solid #777;
+  padding: 10px;
+}
+body.node-type-recipe div.field-name-field-ingredients {
+  clear:left;
+}
+
+#f1_feed {
+  font-family: arial;
+  background-color: #690F0F;
+  border: 5px solid gray;
+  padding: 10px;
+}
+
+#f1_feed a {
+  color: white;
+  text-decoration: none;
+}
+
+#f1_feed h2 {
+  color: white;
+  font-family: arial;
+  text-align: center;
+}

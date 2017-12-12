@@ -168,19 +168,6 @@ function f1_feed_block_block_view($delta = '') {
 }
 
 
-// function fb_feed_block_block_view($delta = '') {
-// 	switch ($delta) {
-// 		case 'posts':
-// 			$block['subject'] = t('Facebook Feed Block Posts');
-// 			$block['content'] = fb_feed_block_block_contents($delta);
-// 			return $block;
-// 			break;
-// 	}
-// }
-
-
-
-
 /**
  * Custom function called by hook_block_view to display our block content
  *
